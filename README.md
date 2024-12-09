@@ -1,6 +1,6 @@
 # 📊 Project Management SPA
 
-[Click here to see DEMO LINK]([https://your-project-demo-link.com](https://sholudyvyy.github.io/payalnya-test-task/#/))
+[Click here to see DEMO LINK](https://sholudyvyy.github.io/project-flow/#/)
 
 ## 🚀 Project Overview
 
@@ -9,6 +9,10 @@ A powerful Single Page Application for seamless project and task management, bui
 ![Vue.js](https://img.shields.io/badge/Vue.js-3-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-blue?style=for-the-badge&logo=typescript&logoColor=white)
 ![Pinia](https://img.shields.io/badge/Pinia-yellow?style=for-the-badge&logo=data:image/png;base64,YOUR_PINIA_LOGO_BASE64)
+
+### Screenshot
+
+![](demo.gif)
 
 ## ✨ Key Features
 
