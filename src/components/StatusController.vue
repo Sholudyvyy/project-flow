@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useProjectsStore } from '@/stores/projects'
-import { onMounted, reactive, defineEmits, ref, watch } from 'vue'
+import { onMounted, reactive, ref, watch } from 'vue'
 import { VueDraggableNext as draggable } from 'vue-draggable-next'
 
 const emit = defineEmits(['updateStatus'])
