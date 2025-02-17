@@ -17,12 +17,12 @@ const toast = useToast()
 const tasksStore = useTasksStore()
 const taskName = ref('')
 const taskPerformer = ref('')
-const taskStatus = ref('')
+const taskStatus = ref('To Do')
 const taskDeadline = ref()
 
 function addItem() {
   if (!taskName.value || !taskPerformer.value || !taskStatus.value || !taskDeadline.value) {
-    toast.error('Всі поля мають бути заповнені!', {
+    toast.error('All fields must be filled in!', {
       position: POSITION.BOTTOM_RIGHT,
     })
 
@@ -39,17 +39,17 @@ function addItem() {
 
   taskName.value = ''
   taskPerformer.value = ''
-  taskStatus.value = ''
+  taskStatus.value = 'To Do'
   taskDeadline.value = null
 }
 </script>
 
 <template>
-  <ModalWindow name="Нове завдання" @add="addItem">
+  <ModalWindow name="New task" @add="addItem">
     <template v-slot:main>
       <form class="task-form">
         <div class="form-group">
-          <label for="taskName" class="form-label">Назва завдання</label>
+          <label for="taskName" class="form-label">Task name</label>
           <div class="input-wrapper">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ function addItem() {
             <input
               id="taskName"
               type="text"
-              placeholder="Введіть назву завдання"
+              placeholder="Enter the name of the task"
               v-model="taskName"
               class="form-input"
               required
@@ -77,7 +77,7 @@ function addItem() {
         </div>
 
         <div class="form-group">
-          <label for="taskPerformer" class="form-label">Виконавець</label>
+          <label for="taskPerformer" class="form-label">Performer</label>
           <div class="input-wrapper">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ function addItem() {
             <input
               id="taskPerformer"
               type="text"
-              placeholder="Оберіть виконавця"
+              placeholder="Enter the name of the performer"
               v-model="taskPerformer"
               class="form-input"
               required
@@ -105,7 +105,7 @@ function addItem() {
         </div>
 
         <div class="form-group">
-          <label for="taskStatus" class="form-label">Статус</label>
+          <label for="taskStatus" class="form-label">Status</label>
           <div class="input-wrapper">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +122,6 @@ function addItem() {
               />
             </svg>
             <select name="status" v-model="taskStatus" class="form-input" required>
-              <option disabled value="">Обрати статус</option>
               <option value="To Do">To Do</option>
               <option value="In Progress">In Progress</option>
               <option value="Done">Done</option>
@@ -131,7 +130,7 @@ function addItem() {
         </div>
 
         <div class="form-group">
-          <label for="taskDeadline" class="form-label">Термін закінчення</label>
+          <label for="taskDeadline" class="form-label">Deadline</label>
           <div class="input-wrapper">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +149,7 @@ function addItem() {
             <VueDatePicker
               id="taskDeadline"
               v-model="taskDeadline"
-              placeholder="Оберіть термін закінчення"
+              placeholder="Select a deadline"
               :min-date="new Date()"
               class="form-input"
               required

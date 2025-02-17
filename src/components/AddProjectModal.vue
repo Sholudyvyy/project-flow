@@ -8,11 +8,11 @@ const toast = useToast()
 const ProjectsStore = useProjectsStore()
 const projectName = ref('')
 const projectPerformer = ref('')
-const projectStatus = ref('')
+const projectStatus = ref('To Do')
 
 function addItem() {
   if (!projectName.value || !projectPerformer.value || !projectStatus.value) {
-    toast.error('Всі поля мають бути заповнені!', {
+    toast.error('All fields must be filled in!', {
       position: POSITION.BOTTOM_RIGHT,
     })
 
@@ -23,30 +23,29 @@ function addItem() {
 
   projectName.value = ''
   projectPerformer.value = ''
-  projectStatus.value = ''
+  projectStatus.value = 'To Do'
 }
 </script>
 
 <template>
-  <ModalWindow name="Новий проект" @add="addItem">
+  <ModalWindow name="New project" @add="addItem">
     <template v-slot:main>
       <form class="form">
         <input
           class="form__input form__input--text"
           type="text"
-          placeholder="Введіть назву проекту"
+          placeholder="Enter the name of the project"
           v-model="projectName"
           required
         />
         <input
           class="form__input form__input--text"
           type="text"
-          placeholder="Введіть опис"
+          placeholder="Enter a description"
           v-model="projectPerformer"
           required
         />
         <select name="status" v-model="projectStatus" class="form__input form__input--status" required>
-          <option disabled value="">Обрати статус</option>
           <option value="To Do">To Do</option>
           <option value="In Progress">In Progress</option>
           <option value="Done">Done</option>
@@ -86,7 +85,7 @@ $color-gray-900: #111827;
   padding: 20px 0;
 
   &__input {
-    width: 100%;
+    width: auto;
     padding: 12px 16px;
     border: 1px solid $color-gray-200;
     border-radius: 8px;

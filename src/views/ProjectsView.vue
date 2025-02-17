@@ -59,7 +59,7 @@ function goToTasks(projectId: string) {
   router.push(`/tasks/${projectId}`)
 
   toast.info(
-    `Ви перейшли до проекту №${projectId} "${projects.value.find((project) => project.id === +projectId)?.name}"`,
+    `You are now in the project №${projectId} "${projects.value.find((project) => project.id === +projectId)?.name}"`,
     {
       position: POSITION.BOTTOM_RIGHT,
     },
@@ -77,7 +77,7 @@ function updateStatus(newStatus: string, id: number) {
   <StatisticsModal v-if="isModalStatisticsOpen" @close="ToggleStatisticsModal"></StatisticsModal>
   <header class="projects-container">
     <div class="projects-header">
-      <span class="projects-title">Проекти</span>
+      <span class="projects-title">Projects</span>
 
       <div class="projects-buttons">
         <button type="button" class="add-project-btn" @click="ToggleModal">
@@ -95,7 +95,7 @@ function updateStatus(newStatus: string, id: number) {
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <line x1="5" y1="12" x2="19" y2="12"></line>
           </svg>
-          Додати проект
+          Add a project
         </button>
         <button type="button" class="add-project-btn" @click="ToggleStatisticsModal">
           <svg
@@ -112,7 +112,7 @@ function updateStatus(newStatus: string, id: number) {
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <line x1="5" y1="12" x2="19" y2="12"></line>
           </svg>
-          Статистика
+          Statistics
         </button>
       </div>
     </div>
@@ -122,7 +122,7 @@ function updateStatus(newStatus: string, id: number) {
         <form @submit.prevent="">
           <input
             type="text"
-            placeholder="Введіть назву проекту"
+            placeholder="Enter the name of the project"
             v-model="query"
             class="project-input"
           />
@@ -132,7 +132,7 @@ function updateStatus(newStatus: string, id: number) {
       <div class="form-group">
         <form @submit.prevent="">
           <select name="status" v-model="status" class="project-select">
-            <option value="" selected>Всі статуси</option>
+            <option value="" selected>All statuses</option>
             <option value="To Do">To Do</option>
             <option value="In Progress">In Progress</option>
             <option value="Done">Done</option>
@@ -142,8 +142,8 @@ function updateStatus(newStatus: string, id: number) {
     </div>
   </header>
 
-  <h1 v-if="isLoadingProject || isLoadingTasks">Завантаження...</h1>
-  <h1 v-if="errorProject || errorTasks">Помилка: {{ errorProject || errorTasks }}</h1>
+  <h1 v-if="isLoadingProject || isLoadingTasks">Loading...</h1>
+  <h1 v-if="errorProject || errorTasks">Error: {{ errorProject || errorTasks }}</h1>
 
   <GeneralTable
     v-if="!isLoadingProject && !isLoadingTasks && !errorProject && !errorTasks"
@@ -154,10 +154,10 @@ function updateStatus(newStatus: string, id: number) {
     :isRowsDraggable="false"
     :customColumns="[
       { name: 'Id', width: 150, sort: true },
-      { name: 'Назва', width: 150, sort: true },
-      { name: 'Кількість завдань', width: 150, sort: true },
-      { name: 'Статус', width: 150, sort: true },
-      { name: 'Дата створення', width: 150, sort: false },
+      { name: 'Title', width: 150, sort: true },
+      { name: 'Number of tasks', width: 150, sort: true },
+      { name: 'Status', width: 150, sort: true },
+      { name: 'Date of creation', width: 150, sort: false },
     ]"
     :customRows="
       visibleProjects.map((project: Project) => [
@@ -257,4 +257,5 @@ function updateStatus(newStatus: string, id: number) {
   border-color: #3498db;
   box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }
+
 </style>

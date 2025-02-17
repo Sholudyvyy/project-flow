@@ -83,7 +83,7 @@ function stopResize() {
 }
 
 function sortColumns(rowIndex: number) {
-  toast.success('Таблиця відсортована', {
+  toast.success('The table is sorted', {
     position: POSITION.BOTTOM_RIGHT,
   })
 
@@ -106,7 +106,7 @@ function sortColumns(rowIndex: number) {
 }
 
 function endDrag() {
-  toast.success('Порядок завдань змінено', {
+  toast.success('The order of tasks has been changed', {
     position: POSITION.BOTTOM_RIGHT,
   })
 }
@@ -191,7 +191,7 @@ function updateStatus(newStatus: string, id: number) {
                 />
               </svg>
               <h2 class="empty-text">
-                Немає даних для відображення, але Ви завжди можете їх додати
+                No data to display, but you can always add it
               </h2>
             </div>
           </td>
@@ -259,6 +259,8 @@ $color-green-900: #064e3b;
         display: flex;
         justify-content: center;
         align-items: center;
+
+        user-select: none;
 
         .sort-icon {
           cursor: pointer;

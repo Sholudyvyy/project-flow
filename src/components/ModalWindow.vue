@@ -45,10 +45,10 @@ const props = defineProps({
         <footer class="modal__footer">
           <slot name="footer">
             <button type="button" class="modal__btn modal__btn--cancel" @click="$emit('close')">
-              Скасувати
+              Cancel
             </button>
             <button type="button" class="modal__btn modal__btn--confirm" @click="$emit('add')">
-              Додати
+              Add
             </button>
           </slot>
         </footer>
@@ -161,6 +161,7 @@ $color-blue-600: #2563eb;
   &__main {
     padding: 20px;
     flex-grow: 1;
+
     overflow-y: auto;
   }
 

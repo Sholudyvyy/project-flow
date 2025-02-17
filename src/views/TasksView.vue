@@ -60,7 +60,7 @@ function updateStatus(newStatus: string, id: number) {
 
   <header class="projects-container">
     <div class="projects-header">
-      <span class="projects-title">Завдання</span>
+      <span class="projects-title">Tasks</span>
 
       <button type="button" class="add-project-btn" @click="ToggleModal">
         <svg
@@ -77,7 +77,7 @@ function updateStatus(newStatus: string, id: number) {
           <line x1="12" y1="5" x2="12" y2="19"></line>
           <line x1="5" y1="12" x2="19" y2="12"></line>
         </svg>
-        Додати завдання
+        Add a task
       </button>
     </div>
 
@@ -86,7 +86,7 @@ function updateStatus(newStatus: string, id: number) {
         <form @submit.prevent="">
           <input
             type="text"
-            placeholder="Введіть ім'я виконавця"
+            placeholder="Enter the name of the Performer"
             v-model="query"
             class="project-input"
           />
@@ -96,7 +96,7 @@ function updateStatus(newStatus: string, id: number) {
       <div class="form-group">
         <form @submit.prevent="">
           <select name="languages" v-model="status" class="project-select">
-            <option value="" selected>Всі статуси</option>
+            <option value="" selected>All statuses</option>
             <option value="To Do">To Do</option>
             <option value="In Progress">In Progress</option>
             <option value="Done">Done</option>
@@ -106,8 +106,8 @@ function updateStatus(newStatus: string, id: number) {
     </div>
   </header>
 
-  <h1 v-if="isLoadingTasks">Завантаження...</h1>
-  <h1 v-if="errorTasks">Помилка: {{ errorTasks }}</h1>
+  <h1 v-if="isLoadingTasks">Loading...</h1>
+  <h1 v-if="errorTasks">Error: {{ errorTasks }}</h1>
 
   <GeneralTable
     v-if="!isLoadingTasks && !errorTasks"
@@ -117,10 +117,10 @@ function updateStatus(newStatus: string, id: number) {
     :isRowsDraggable="true"
     :customColumns="[
       { name: 'Id', width: 150, sort: true },
-      { name: 'Назва', width: 150, sort: true },
-      { name: 'Виконавець', width: 150, sort: true },
-      { name: 'Статус', width: 150, sort: true },
-      { name: 'Термін виконання', width: 150, sort: false },
+      { name: 'Title', width: 150, sort: true },
+      { name: 'Performer', width: 150, sort: true },
+      { name: 'Status', width: 150, sort: true },
+      { name: 'Deadline', width: 150, sort: false },
     ]"
     :customRows="
       visibleTasks.map((task: Task) => [

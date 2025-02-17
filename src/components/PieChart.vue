@@ -13,15 +13,8 @@ import {
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, ArcElement)
 
-const chartData = {
-  labels: ['January', 'February', 'March'],
-  datasets: [{ data: [40, 20, 12] }],
-}
-const chartOptions = {
-  responsive: true,
-}
 </script>
 
 <template>
-  <Pie id="my-chart-id" :options="chartOptions" :data="chartData" />
+  <Pie id="my-chart-id" />
 </template>

@@ -31,7 +31,7 @@ const chartOptions = { responsive: true }
 </script>
 
 <template>
-  <ModalWindow name="Статистика завдань">
+  <ModalWindow name="Task statistics">
     <template v-slot:main
       ><div class="container">
         <PieChart class="container__chart" :data="chartData" :options="chartOptions" /></div
@@ -51,9 +51,9 @@ const chartOptions = { responsive: true }
   &__chart {
   max-width: 100%;
   max-height: 100%;
+
   width: auto;
   height: auto;
-  overflow: hidden;
 }
 }
 </style>

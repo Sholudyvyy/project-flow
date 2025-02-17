@@ -59,7 +59,6 @@ function updateStatus () {
 
 <template>
   <div class="task-board">
-    <!-- Секція To Do -->
     <div class="task-column">
       <draggable
         :list="tasks.todo"
@@ -73,7 +72,6 @@ function updateStatus () {
       </draggable>
     </div>
 
-    <!-- Секція In Progress -->
     <div class="task-column">
       <draggable
         :list="tasks.inProgress"
@@ -89,7 +87,6 @@ function updateStatus () {
       </draggable>
     </div>
 
-    <!-- Секція Done -->
     <div class="task-column">
       <draggable
         :list="tasks.done"
