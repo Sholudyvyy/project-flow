@@ -49,8 +49,8 @@ A powerful Single Page Application for seamless project and task management, bui
 
 1. Clone the repository
 ```bash
-git clone https://github.com/Sholudyvyy/payalnya-test-task.git
-cd payalnya-test-task
+git clone https://github.com/Sholudyvyy/project-flow.git
+cd project-flow
 ```
 
 2. Install dependencies
